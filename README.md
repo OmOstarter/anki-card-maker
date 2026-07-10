@@ -1,4 +1,4 @@
-# 線上詞典助手 — 離線英漢劃詞辭典（WordNet + Kaikki）
+# anki單字製卡助手 — 離線英漢劃詞辭典（WordNet + Kaikki）
 
 在網頁上**選取任何英文單字或片語**,即時跳出**英文→繁體中文**釋義,並可一鍵送進
 **Anki** 製卡。支援 **Firefox**(桌面 + Android)與 **Chromium** 系瀏覽器
