@@ -1,0 +1,266 @@
+/* Popup themed to the Anki Card Maker APK, but using the original 划词助手
+   (ODH) compact font sizes and line spacing. */
+
+/* Let the native scrollbar (and form controls) follow the system light/dark
+   scheme, so the popup's right-side scrollbar is dark in dark mode. */
+html, body {
+  color-scheme: light dark;
+}
+
+.odh-notes {
+  color-scheme: light dark;
+  --bg-card: #ffffff;
+  --bg-section: #f7f7f8;
+  --text-main: #2f2f33;
+  --text-strong: #111111;
+  --text-muted: #6f6f76;
+  --border-color: #e1e1e6;
+  --accent-blue: #2563eb;
+  --chn-tran-color: #5b6ee1;
+  font-family: "Segoe UI", Helvetica, Arial, "Microsoft Yahei", sans-serif;
+  font-size: 14px;
+  text-align: left;
+  color: var(--text-main);
+  background-color: var(--bg-card);
+  line-height: 1.5em;
+  min-height: 1.5em;
+  overflow-y: auto;
+  margin: 0;
+  padding: 8px;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.odh-note {
+  margin: 5px 0;
+  padding: 0;
+}
+
+.odh-headsection {
+  margin: 3px 0;
+  padding: 0 3px 4px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Headword same size as the phonetic reading. */
+.odh-expression {
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-right: 4px;
+  color: var(--text-strong);
+}
+
+.odh-reading {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  margin-right: 4px;
+  display: inline-block;
+  color: var(--text-muted);
+}
+
+.odh-extra {
+  margin-right: 4px;
+  display: inline-block;
+  color: var(--text-muted);
+}
+
+.odh-definition,
+.odh-sentence {
+  display: block;
+  background-color: var(--bg-section);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 5px;
+  margin-top: 5px;
+  word-wrap: break-word;
+  overflow: auto;
+}
+
+/* Long-press-then-drag reordering of senses. */
+body.odh-reordering {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.odh-definition.odh-dragging {
+  opacity: 0.65;
+  outline: 2px dashed var(--accent-blue);
+}
+
+#odh-context {
+  font-family: "Segoe UI", Helvetica, Arial, "Microsoft Yahei", sans-serif;
+  background: var(--bg-section);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin: 0;
+  width: 96%;
+  height: 100px;
+}
+
+.odh-sentence {
+  border: 1px solid var(--border-color);
+  padding: 0;
+}
+
+.odh-addnote-disabled,
+.odh-addnote {
+  margin: 3px;
+  cursor: pointer;
+  position: relative;
+  float: right;
+}
+
+.odh-addnote-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.odh-audios {
+  margin: 3px;
+  position: relative;
+  float: right;
+}
+
+.odh-playaudio {
+  cursor: pointer;
+  margin: 0 3px;
+}
+
+.odh-playsound {
+  vertical-align: text-bottom;
+  margin: 0 3px;
+}
+
+hr {
+  border: 0;
+  margin: 5px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.hidden {
+  display: none;
+}
+
+.highlight {
+  font-size: 0.9em;
+  border-radius: 999px;
+  color: #fff;
+  padding: 1px 6px;
+  margin-right: 3px;
+  text-decoration: none;
+  text-align: center;
+  background-color: var(--accent-blue);
+}
+
+@media (prefers-color-scheme: dark) {
+  .odh-notes {
+    --bg-card: #1b1b1f;
+    --bg-section: #25252b;
+    --text-main: #d7d7dd;
+    --text-strong: #ffffff;
+    --text-muted: #a0a0aa;
+    --border-color: #3a3a42;
+    --accent-blue: #7aa2ff;
+    --chn-tran-color: #9aa7ff;
+  }
+}
+
+/* Right-click sense editor (lives outside .odh-notes, so it carries its own
+   colours + dark mode). */
+#odh-editor-mask {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 2147483647;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Helvetica, Arial, "Microsoft Yahei", sans-serif;
+}
+
+#odh-editor {
+  width: 88%;
+  max-width: 360px;
+  background: #ffffff;
+  color: #2f2f33;
+  border: 1px solid #e1e1e6;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  font-size: 13px;
+}
+
+.odh-editor-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.odh-editor-row label {
+  font-size: 12px;
+  color: #6f6f76;
+  margin-bottom: 2px;
+}
+
+.odh-editor-row input,
+.odh-editor-row textarea {
+  font: inherit;
+  color: inherit;
+  background: #f7f7f8;
+  border: 1px solid #e1e1e6;
+  border-radius: 5px;
+  padding: 5px 6px;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.odh-editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.odh-editor-actions button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 14px;
+}
+
+#odh-edit-cancel {
+  background: #e6e8ec;
+  color: #2f2f33;
+}
+
+#odh-edit-save {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  #odh-editor {
+    background: #1b1b1f;
+    color: #d7d7dd;
+    border-color: #3a3a42;
+  }
+  .odh-editor-row label {
+    color: #a0a0aa;
+  }
+  .odh-editor-row input,
+  .odh-editor-row textarea {
+    background: #25252b;
+    border-color: #3a3a42;
+  }
+  #odh-edit-cancel {
+    background: #3a3a42;
+    color: #d7d7dd;
+  }
+  #odh-edit-save {
+    background: #7aa2ff;
+    color: #0b1b31;
+  }
+}

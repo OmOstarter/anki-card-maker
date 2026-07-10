@@ -1,0 +1,162 @@
+:root {
+    --bg-page: #ffffff;
+    --bg-group: #eef3fb;
+    --title-bg: #0d47a1;
+    --title-text: #ffffff;
+    --text-main: #2f2f33;
+    --border: #d6d9e0;
+    --input-bg: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, "Microsoft Yahei", sans-serif;
+    font-size: 12px;
+    width: 240px;
+    border-radius: 5px;
+    margin: 2px 4px;
+    padding: 0;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+.grouppanel {
+    border-radius: 5px;
+    background-color: var(--bg-group);
+    margin: 5px 0;
+    padding: 0 0 3px;
+}
+
+.grouptitle {
+    font-weight: bold;
+    color: var(--title-text);
+    background-color: var(--title-bg);
+    border-radius: 5px 5px 0 0;
+    margin: 0 0 4px;
+    padding: 4px 15px;
+}
+
+/* One setting per row, vertically centered: label on the left, control on the
+   right. flex-wrap pairs up the flat label/control siblings and
+   align-items:center keeps the toggle/select aligned to the row's middle. */
+.crosspanel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 8px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.more {
+    float: right;
+    color: var(--title-text);
+    cursor: pointer;
+}
+
+.crosspanel > label {
+    flex: 0 0 46%;
+    min-width: 0;
+    text-align: center;
+    padding: 5px 6px;
+    margin: 3px 0;
+    color: var(--text-main);
+    background-color: var(--input-bg);
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+}
+
+/* min-width:0 stops long-content selects/inputs (e.g. long deck names) from
+   refusing to shrink to their flex-basis and wrapping onto a new row. */
+.crosspanel > select,
+.crosspanel > input {
+    flex: 0 0 50%;
+    min-width: 0;
+    margin: 3px 0;
+    padding: 5px 6px;
+    color: var(--text-main);
+    background-color: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.crosspanel > .enabled {
+    flex: 0 0 auto;
+    /* auto side margins center the toggle in the control area instead of
+       letting justify-content:space-between shove it to the far right edge */
+    margin: 3px auto;
+}
+
+.crosspanel > hr {
+    flex: 0 0 100%;
+    margin: 4px 0;
+}
+
+/* hide the Anki section without disturbing the flex display when shown */
+.anki-options.collapsed {
+    display: none;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-page: #1b1b1f;
+        --bg-group: #25252b;
+        --title-bg: #11366f;
+        --title-text: #ffffff;
+        --text-main: #d7d7dd;
+        --border: #3a3a42;
+        --input-bg: #2a2a30;
+    }
+}
+
+/* Touch devices (e.g. Firefox for Android): same centered row layout, just
+   filling the screen with larger text and controls. */
+@media (pointer: coarse) {
+    body {
+        width: auto;
+        font-size: 18px;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .grouptitle {
+        padding: 12px 16px;
+        font-size: 19px;
+    }
+
+    .crosspanel {
+        padding: 4px 14px;
+    }
+
+    .crosspanel > label {
+        padding: 12px 8px;
+        margin: 7px 0;
+    }
+
+    .crosspanel > select,
+    .crosspanel > input {
+        padding: 12px 8px;
+        margin: 7px 0;
+        font-size: 18px;
+    }
+
+    .crosspanel > .enabled {
+        margin: 7px auto;
+    }
+}

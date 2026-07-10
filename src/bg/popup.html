@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/checkbox.css">
+    <title data-i18n="optTitle">Online Dictionary Helper</title>
+</head>
+
+<body>
+    <div class='container'>
+        <form>
+            <div class="grouppanel">
+                <div class="grouptitle">
+                    <span class="title" data-i18n="baTitle">Options</span>
+                    <span class="more" id="more">...</span>
+                </div>
+                <div class="crosspanel">
+                    <label data-i18n="baEnabled">Enabled</label>
+                    <div class="enabled">
+                        <input type="checkbox" value=true id="enabled">
+                        <label for="enabled"></label>
+                    </div>
+                    <label data-i18n="baMouseselection">Enabled</label>
+                    <div class="enabled">
+                        <input type="checkbox" value=true id="mouseselection">
+                        <label for="mouseselection"></label>
+                    </div>
+
+                    <label data-i18n="baReaderFab">Reader btn</label>
+                    <div class="enabled">
+                        <input type="checkbox" value=true id="readerfab">
+                        <label for="readerfab"></label>
+                    </div>
+
+                    <label data-i18n="baHotKey">AuoSel.</label>
+                    <select id="hotkey" class="col-2x">
+                        <option value="0">Off</option>
+                        <option value="16">Shift</option>
+                        <option value="17">Ctrl</option>
+                        <option value="18" data-platform="nonmac">Alt</option>
+                        <option value="91" data-platform="mac">Cmd (⌘)</option>
+                        <option value="18" data-platform="mac">Option (⌥)</option>
+                    </select>
+                    <hr>
+                    <label data-i18n="baCurrentDict">Dict.</label>
+                    <select id="dict" class="col-2x">
+                        <option value="encn-Default">encn-Default</option>
+                    </select>
+                </div>
+                <div class="crosspanel anki-options">
+                    <hr>
+                    <label data-i18n="baDeckname">Deck</label>
+                    <select id="deckname" class="col-2x">
+                        <option value=""></option>
+                    </select>
+                    <label data-i18n="baTags">Tags</label>
+                    <input type="text" id="tags" placeholder="Tags" class="col-2x">
+                </div>
+                <div style="padding:6px 0 2px;text-align:left;">
+                    <button type="button" id="reader" data-i18n="baReader"
+                        style="display:inline-block;padding:5px 12px;cursor:pointer;border-radius:6px;border:1px solid #0d47a1;background:#0d47a1;color:#fff;font-size:13px;">Reader Mode</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!--script src="js/polyfill.js"></script-->
+    <script src="../lib/jquery-3.0.0.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/popup.js"></script>
+</body>
+
+</html>

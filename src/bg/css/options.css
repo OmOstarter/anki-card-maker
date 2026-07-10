@@ -1,0 +1,284 @@
+:root {
+    --bg-page: #ffffff;
+    --bg-group: #eef3fb;
+    --title-bg: #0d47a1;
+    --title-text: #ffffff;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --text-main: #2f2f33;
+    --border: #d6d9e0;
+    --input-bg: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, "Microsoft Yahei", sans-serif;
+    font-size: 12px;
+    width: 440px;
+    border-radius: 8px;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.grouppanel {
+    border-radius: 5px;
+    background-color: var(--bg-group);
+    margin: 5px 0;
+    padding: 0 0 3px;
+}
+
+.grouptitle {
+    font-weight: bold;
+    color: var(--title-text);
+    background-color: var(--title-bg);
+    border-radius: 5px 5px 0 0;
+    margin: 0 0 4px;
+    padding: 4px 15px;
+}
+
+.crosspanel {
+    padding: 0 6px;
+    width: 100%;
+}
+
+.leftpanel, .rightpanel {
+    padding: 0 6px;
+    float: left;
+    width: 50%;
+}
+
+.leftpanel {
+    border-right: 1px solid var(--border);
+}
+
+.clearfix {
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent);
+}
+
+.option-helps {
+    float: right;
+}
+
+.option-helps a {
+    color: var(--title-text);
+}
+
+label, input, select {
+    width: 95px;
+    padding: 4px;
+    margin: 3px;
+    display: inline-block;
+    color: var(--text-main);
+    background-color: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+label {
+    text-align: __MSG_labelAlignment__;
+    border-style: dashed;
+}
+
+.col-2x {
+    width: 212px;
+}
+
+.col-3x {
+    width: 317px;
+}
+
+.gifs {
+    display: inline-block;
+}
+
+.gif{
+    vertical-align: middle;
+}
+
+.button {
+    text-align: center;
+    width: 95px;
+    background-color: var(--accent);
+    color: #ffffff;
+    padding: 4px;
+    margin: 6px 3px 3px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--accent-hover);
+}
+
+hr {
+    border: 1px;
+    margin: 4px 5px;
+    border-top: 1px solid var(--border);
+}
+
+div.tabmenus {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0 !important;
+    padding-bottom: 2px;
+}
+
+a.tabmenu {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-page: #1b1b1f;
+        --bg-group: #25252b;
+        --title-bg: #11366f;
+        --title-text: #ffffff;
+        --accent: #7aa2ff;
+        --accent-hover: #9bb8ff;
+        --text-main: #d7d7dd;
+        --border: #3a3a42;
+        --input-bg: #2a2a30;
+    }
+}
+
+/* Touch devices (e.g. Firefox for Android): fill the screen and lay every
+   label|control pair as a single vertically-centered row, matching the popup.
+   The two side-by-side columns (.leftpanel/.rightpanel) stack into one.
+   Keyed on pointer:coarse so the desktop two-column layout is unaffected. */
+@media (pointer: coarse) {
+    body {
+        width: auto;
+        font-size: 17px;
+    }
+
+    .grouptitle {
+        padding: 12px 16px;
+        font-size: 18px;
+    }
+
+    a.tabmenu {
+        display: inline-block;
+        padding: 10px 8px;
+        font-size: 17px;
+    }
+
+    .leftpanel,
+    .rightpanel,
+    .crosspanel {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        float: none;
+        width: 100%;
+        padding: 4px 12px;
+    }
+
+    .leftpanel {
+        border-right: none;
+    }
+
+    .leftpanel > label:not(.button),
+    .rightpanel > label:not(.button),
+    .crosspanel > label:not(.button) {
+        flex: 0 0 46%;
+        min-width: 0;
+        text-align: center;
+        padding: 12px 8px;
+        margin: 6px 0;
+        box-sizing: border-box;
+    }
+
+    /* min-width:0 lets long-content controls shrink to their flex-basis
+       instead of wrapping onto a new row. */
+    .leftpanel > select,
+    .leftpanel > input,
+    .rightpanel > select,
+    .rightpanel > input,
+    .crosspanel > select,
+    .crosspanel > input {
+        flex: 0 0 50%;
+        min-width: 0;
+        margin: 6px 0;
+        padding: 12px 8px;
+        font-size: 17px;
+        box-sizing: border-box;
+    }
+
+    .leftpanel > .enabled,
+    .rightpanel > .enabled,
+    .crosspanel > .enabled {
+        flex: 0 0 auto;
+        /* center the toggle in the control area rather than the far right edge */
+        margin: 6px auto;
+    }
+
+    /* let flex-basis govern width instead of the fixed col-Nx widths */
+    .col-2x,
+    .col-3x {
+        width: auto;
+    }
+
+    /* Anki connection status sits on its own full-width line */
+    #services-status {
+        flex: 0 0 100%;
+        text-align: center;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 12px 20px;
+        font-size: 17px;
+    }
+
+    /* Bottom action bar (Save-and-Load / Save / Close). Its wrapper uses the
+       distinct "grouppannel" class, so override the stacked full-width panels
+       and keep all three buttons on one row, each on a single text line. */
+    .grouppannel {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 8px 12px;
+    }
+
+    .grouppannel .leftpanel,
+    .grouppannel .rightpanel {
+        display: flex;
+        flex: 0 1 auto;
+        flex-wrap: nowrap;
+        align-items: center;
+        width: auto;
+        padding: 0;
+        gap: 10px;
+        border: none;
+    }
+
+    .grouppannel .clearfix {
+        display: none;
+    }
+
+    .grouppannel .button {
+        width: auto;
+        white-space: nowrap;
+        margin: 0;
+        padding: 12px 14px;
+    }
+}

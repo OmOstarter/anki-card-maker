@@ -1,0 +1,68 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_appName__",
+    "version": "0.9.6",
+    "default_locale": "en",
+    "description": "__MSG_appDesc__",
+    "icons": {
+        "16": "img/icon16.png",
+        "48": "img/icon48.png",
+        "128": "img/icon128.png"
+    },
+    "action": {
+        "default_icon": {
+            "19": "img/icon19.png",
+            "38": "img/icon38.png"
+        },
+        "default_popup": "bg/popup.html"
+    },
+    "background": {
+        "service_worker": "bg/sw.js"
+    },
+    "content_scripts": [{
+        "matches": ["*://*/*", "file://*/*"],
+        "js": [
+            "lib/Readability.js",
+            "lib/Readability-readerable.js",
+            "fg/js/api.js",
+            "fg/js/popup.js",
+            "fg/js/range.js",
+            "fg/js/text.js",
+            "fg/js/frontend.js"
+        ],
+        "css": ["fg/css/client.css"]
+    }],
+    "minimum_chrome_version": "110",
+    "options_ui": {
+        "page": "bg/options.html",
+        "open_in_tab": true
+    },
+    "permissions": ["storage"],
+    "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"],
+    "web_accessible_resources": [{
+        "resources": [
+            "fg/css/frame.css",
+            "fg/css/spell.css",
+            "fg/js/frame.js",
+            "fg/js/spell.js",
+            "fg/font/spell-icons.ttf",
+            "fg/font/spell-icons.woff",
+            "fg/img/play.png",
+            "fg/img/plus.png",
+            "fg/img/cloud.png",
+            "fg/img/load.gif",
+            "fg/img/fail.png",
+            "fg/img/good.png"
+        ],
+        "matches": ["<all_urls>"]
+    }],
+    "commands": {
+        "enabled": {
+            "suggested_key": {
+                "default": "Alt+Q",
+                "mac": "MacCtrl+Q"
+            },
+            "description": "__MSG_lblEnabled__"
+        }
+    }
+}

@@ -1,0 +1,46 @@
+/* Clean sliding toggle switch (grey track when off, green when on, white knob).
+   Replaces the old On/Off-text pill whose knob overlapped the text. */
+.enabled input[type=checkbox] {
+    display: none;
+}
+
+.enabled {
+    width: 46px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    margin: 3px;
+    background: #9a9a9a;
+    border-radius: 24px;
+    vertical-align: middle;
+    transition: background .25s ease;
+}
+
+/* the knob */
+.enabled label {
+    display: block;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .35);
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 1;
+    transition: left .25s ease;
+}
+
+.enabled input[type=checkbox]:checked + label {
+    left: 25px;
+}
+
+/* track turns green when the switch is on */
+.enabled:has(input[type=checkbox]:checked) {
+    background: #4caf50;
+}

@@ -1,0 +1,84 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_appName__",
+    "version": "0.9.6",
+    "default_locale": "en",
+    "description": "__MSG_appDesc__",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{d13f08a2-d8d9-4e26-b045-2c8e67b8fac0}",
+            "strict_min_version": "140.0",
+            "data_collection_permissions": { "required": ["none"] }
+        },
+        "gecko_android": {
+            "strict_min_version": "142.0"
+        }
+    },
+    "icons": {
+        "16": "img/icon16.png",
+        "48": "img/icon48.png",
+        "128": "img/icon128.png"
+    },
+    "action": {
+        "default_icon": {
+            "19": "img/icon19.png",
+            "38": "img/icon38.png"
+        },
+        "default_popup": "bg/popup.html"
+    },
+    "background": {
+        "scripts": [
+            "bg/js/utils.js",
+            "bg/js/deinflector.js",
+            "bg/js/builtin.js",
+            "bg/js/ankiconnect.js",
+            "dict/builtin_encn_WordnetKaikki.js",
+            "bg/js/core.js"
+        ]
+    },
+    "content_scripts": [{
+        "matches": ["*://*/*", "file://*/*"],
+        "js": [
+            "lib/Readability.js",
+            "lib/Readability-readerable.js",
+            "fg/js/api.js",
+            "fg/js/popup.js",
+            "fg/js/range.js",
+            "fg/js/text.js",
+            "fg/js/frontend.js"
+        ],
+        "css": ["fg/css/client.css"]
+    }],
+    "options_ui": {
+        "page": "bg/options.html",
+        "open_in_tab": true
+    },
+    "permissions": ["storage"],
+    "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"],
+    "web_accessible_resources": [{
+        "resources": [
+            "fg/css/frame.css",
+            "fg/css/spell.css",
+            "fg/js/frame.js",
+            "fg/js/spell.js",
+            "fg/font/spell-icons.ttf",
+            "fg/font/spell-icons.woff",
+            "fg/img/play.png",
+            "fg/img/plus.png",
+            "fg/img/cloud.png",
+            "fg/img/load.gif",
+            "fg/img/fail.png",
+            "fg/img/good.png"
+        ],
+        "matches": ["<all_urls>"]
+    }],
+    "commands": {
+        "enabled": {
+            "suggested_key": {
+                "default": "Alt+Q",
+                "mac": "MacCtrl+Q"
+            },
+            "description": "__MSG_lblEnabled__"
+        }
+    }
+}

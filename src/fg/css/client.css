@@ -1,0 +1,25 @@
+iframe#odh-popup {
+    all: initial;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e6;
+    border-radius: 0;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .18);
+    height: 300px;
+    /* Never exceed the viewport (with a small margin) so the popup can't be
+       clipped by the screen edge on narrow/mobile screens. */
+    max-width: calc(100vw - 16px);
+    max-height: calc(100vh - 16px);
+    position: fixed;
+    resize: both;
+    visibility: hidden;
+    width: 400px;
+    z-index: 2147483647;
+}
+
+@media (prefers-color-scheme: dark) {
+    iframe#odh-popup {
+        background-color: #1b1b1f;
+        border-color: #3a3a42;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, .5);
+    }
+}
