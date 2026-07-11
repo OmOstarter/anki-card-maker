@@ -41,6 +41,12 @@ python3 build_chrome_extension.py       # -> dist/wordnet_kaikki_chrome.zip
 
 字典資料以 `src/data/wordnet_kaikki.json.gz` 形式附上,Chrome 建置會自動解壓。
 
+## Anki 卡片模板(讓卡片有漂亮排版)
+
+擴充加卡用的是 **Dict Vocab** note type。第一次使用前,先把
+[`docs/Dict-Vocab.apkg`](docs/Dict-Vocab.apkg) 匯入 Anki(檔案 → 匯入),就會建立好對應的欄位
+(`expression / reading / sentence / audio / FullDefinition`)與卡片版面;之後從擴充加的卡片才會套用這個排版。
+
 ## 資料來源與授權
 
 內建辭典由「無版權疑慮」的來源整理而成:
@@ -106,6 +112,13 @@ Load unpacked for development:
 
 The dictionary data ships as `src/data/wordnet_kaikki.json.gz`; the Chrome build
 decompresses it automatically.
+
+## Anki note type (for nicely-formatted cards)
+
+Cards are exported to a **Dict Vocab** note type. Before your first use, import
+[`docs/Dict-Vocab.apkg`](docs/Dict-Vocab.apkg) into Anki (File → Import) to create the
+matching fields (`expression / reading / sentence / audio / FullDefinition`) and card
+layout; cards you then add from the extension will use this styling.
 
 ## Data sources & licenses
 
