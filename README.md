@@ -6,6 +6,9 @@
 
 > English version below ↓ — [jump to English](#offline-englishchinese-pop-up-dictionary-wordnet--kaikki)
 
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Install-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/offline-english-chinese-p/dmmppnpohjbholombkjkdbmombcgeiik?authuser=0&hl=zh-TW)
+[![Firefox Add-ons](https://img.shields.io/badge/Firefox_Add--ons-Install-FF7139?style=for-the-badge&logo=firefoxbrowser&logoColor=white)](https://addons.mozilla.org/zh-TW/firefox/addon/english-chinese-dictionary/versions/)
+
 ## 功能
 
 - **完全離線**的內建辭典(WordNet + Wiktionary/Kaikki),附繁體中文釋義 —— 查詞不連網、不外傳。
@@ -19,9 +22,8 @@
 
 ## 安裝
 
-- **Firefox / Firefox Android:** 從 addons.mozilla.org(連結待補),或自行建置下方的 `.xpi`。
-- **Chrome / Edge / Brave …:** 從 Chrome 線上應用程式商店 / Edge 附加元件(連結待補),
-  或用下方方式載入未封裝版本。
+- **Firefox / Firefox Android:** 從 [Firefox Add-ons](https://addons.mozilla.org/zh-TW/firefox/addon/english-chinese-dictionary/versions/) 安裝，或自行建置下方的 `.xpi`。
+- **Chrome / Edge / Brave …:** 從 [Chrome 線上應用程式商店](https://chromewebstore.google.com/detail/offline-english-chinese-p/dmmppnpohjbholombkjkdbmombcgeiik?authuser=0&hl=zh-TW) 安裝，或用下方方式載入未封裝版本。
 
 ### 從原始碼建置
 
@@ -87,10 +89,8 @@ No analytics, no tracking — see [`docs/PRIVACY_POLICY.md`](docs/PRIVACY_POLICY
 
 ## Install
 
-- **Firefox / Firefox for Android:** from addons.mozilla.org (link TBA), or
-  build the `.xpi` below.
-- **Chrome / Edge / Brave / …:** from the Chrome Web Store / Edge Add-ons
-  (links TBA), or load the unpacked build below.
+- **Firefox / Firefox for Android:** install from [Firefox Add-ons](https://addons.mozilla.org/zh-TW/firefox/addon/english-chinese-dictionary/versions/), or build the `.xpi` below.
+- **Chrome / Edge / Brave / …:** install from the [Chrome Web Store](https://chromewebstore.google.com/detail/offline-english-chinese-p/dmmppnpohjbholombkjkdbmombcgeiik?authuser=0&hl=zh-TW), or load the unpacked build below.
 
 ### From source
 
